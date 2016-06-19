@@ -46,6 +46,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+.vs/
+packages/
 Bin/
-*.csproj.user
 obj/
+*.csproj.user
