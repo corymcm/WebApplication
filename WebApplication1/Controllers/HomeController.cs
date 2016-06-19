@@ -29,12 +29,5 @@ namespace WebApplication1.Controllers
 
             return View();
         }
-
-        public ActionResult Images()
-        {
-            ViewBag.Message = "Image Gallery";
-
-            return View();
-        }
     }
 }
