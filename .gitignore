@@ -51,3 +51,4 @@ packages/
 Bin/
 obj/
 *.csproj.user
+WebApplication1/WebApplication1.csproj
