@@ -216,7 +216,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\625px-Nien_Nunb.jpg" />
+    <Content Include="Images\20160224_115009.jpg" />
+    <Content Include="Images\20160224_115019.jpg" />
+    <Content Include="Images\20160224_115027.jpg" />
+    <Content Include="Images\20160224_115034.jpg" />
+    <Content Include="Images\20160224_115043.jpg" />
+    <Content Include="Images\20160224_115102.jpg" />
+    <Content Include="Images\20160224_115713.jpg" />
+    <Content Include="Images\20160224_115718.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -306,7 +313,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64896</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:64896/</IISUrl>
+          <IISUrl>http://192.168.0.106:64896/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
