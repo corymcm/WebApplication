@@ -7,15 +7,25 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace WebApplication1
 {
     public class EmailService : IIdentityMessageService
     {
-        public Task SendAsync(IdentityMessage message)
+        public async Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            using (var smtpClient = new SmtpClient { Host = "smtp.live.com", Port = 587, UseDefaultCredentials =false, Credentials = 
+                new System.Net.NetworkCredential("canadiancubareleations@outlook.com", "2005FiatPanda") })
+            {
+                smtpClient.EnableSsl = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                await smtpClient.SendMailAsync("canadiancubareleations@outlook.com",
+                                            message.Destination,
+                                            message.Subject,
+                                            message.Body);
+            }
         }
     }
 
