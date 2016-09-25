@@ -6,6 +6,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
+using System;
+using SaasEcom.Core.Infrastructure.Facades;
+using SaasEcom.Core.DataServices.Storage;
+using SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe;
+using System.Configuration;
+using SaasEcom.Core.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -46,6 +52,24 @@ namespace WebApplication1.Controllers
             private set
             {
                 _userManager = value;
+            }
+        }
+
+        private SubscriptionsFacade _subscriptionsFacade;
+        private SubscriptionsFacade SubscriptionsFacade
+        {
+            get
+            {
+                return _subscriptionsFacade ?? (_subscriptionsFacade = new SubscriptionsFacade(
+                new SubscriptionDataService<ApplicationDbContext, ApplicationUser>
+                (HttpContext.GetOwinContext().Get<ApplicationDbContext>()),
+                new SubscriptionProvider(ConfigurationManager.AppSettings["StripeApiSecretKey"]),
+                new CardProvider(ConfigurationManager.AppSettings["StripeApiSecretKey"],
+                new CardDataService<ApplicationDbContext, ApplicationUser>(Request.GetOwinContext().Get<ApplicationDbContext>())),
+                new CardDataService<ApplicationDbContext, ApplicationUser>(Request.GetOwinContext().Get<ApplicationDbContext>()),
+                new CustomerProvider(ConfigurationManager.AppSettings["StripeApiSecretKey"]),
+                new SubscriptionPlanDataService<ApplicationDbContext, ApplicationUser>(Request.GetOwinContext().Get<ApplicationDbContext>()),
+                new ChargeProvider(ConfigurationManager.AppSettings["StripeApiSecretKey"])));
             }
         }
 
@@ -134,9 +158,13 @@ namespace WebApplication1.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
-        public ActionResult Register()
+        public ActionResult Register(string plan)
         {
-            return View();
+            return View(new RegisterViewModel
+            {
+                SubscriptionPlan = plan,
+                CreditCard = new CreditCard()
+            });
         }
 
         //
@@ -148,10 +176,12 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, RegistrationDate = DateTime.UtcNow, LastLoginTime = DateTime.UtcNow };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await SubscriptionsFacade.SubscribeUserAsync(user, model.SubscriptionPlan, 0, model.CreditCard);
+                    await UserManager.UpdateAsync(user);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -198,9 +228,9 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                if (user == null)
                 {
-                    // Don't reveal that the user does not exist or is not confirmed
+                    // Don't reveal that the user does not exist
                     return View("ForgotPasswordConfirmation");
                 }
 
@@ -360,7 +390,7 @@ namespace WebApplication1.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, RegistrationDate = DateTime.UtcNow, LastLoginTime = DateTime.UtcNow };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

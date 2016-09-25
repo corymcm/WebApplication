@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using SaasEcom.Core.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models
@@ -79,6 +80,11 @@ namespace WebApplication1.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string SubscriptionPlan { get; set; }
+
+        [Required]
+        public CreditCard CreditCard { get; set; }
     }
 
     public class ResetPasswordViewModel

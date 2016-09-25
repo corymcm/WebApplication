@@ -51,11 +51,11 @@
             {
                 if (imgIndex == 0)
                 {
-                    <img class="mySlides" src="@Url.Content("~/Images/" + Model.ImageList[imgIndex])" style="display:block">
+                    <img class="mySlides" src="@Url.Content("~/Images/" + Model.ImageList[imgIndex].Name)" style="display:block">
                 }
                 else
                 {
-                    <img class="mySlides" src="@Url.Content("~/Images/" + Model.ImageList[imgIndex])">
+                    <img class="mySlides" src="@Url.Content("~/Images/" + Model.ImageList[imgIndex].Name)">
                 }
             }
             <div class="w3-section" style="text-align: center; background-color: orangered">

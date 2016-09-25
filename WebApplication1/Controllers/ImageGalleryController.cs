@@ -12,33 +12,41 @@ namespace WebApplication1.Controllers
         // GET: ImageGallery
         public ActionResult Index()
         {
-            var db = new ImageDbConnectionContext();
-
-            var imagesModel = new ImageGalleryModel();
-            var imageFiles = Directory.GetFiles(Server.MapPath("~/Images/"));
-            foreach (var item in imageFiles)
+            if (ModelState.IsValid)
             {
-                imagesModel.ImageList.Add(Path.GetFileName(item));
-            }
-            return View(imagesModel);
+                var imagesModel = new ImageGalleryModel();
+                var imageFiles = Directory.GetFiles(Server.MapPath("~/Images/"));
+                foreach (var item in imageFiles)
+                {
+                    imagesModel.ImageList.Add(new LocalImageModel(Path.GetFileName(item)));
+                }
 
+                return View(imagesModel);
+            }
+            return View();
         }
 
         // GET: ImageGallery/Details
         public ActionResult Details(Guid? id)
         {
-            var db = new ImageDbConnectionContext();
+            if (ModelState.IsValid)
+            {
+                using (ImageDbConnectionContext db = new ImageDbConnectionContext())
+                {
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    IImageModel image = db.ImageGallery.Find(id);
+                    if (image == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(image);
 
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
             }
-            ImageGalleryModel imageGalleryModel = db.ImageGallery.Find(id);
-            if (imageGalleryModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(imageGalleryModel);
+            return View("Index");
         }
 
         // GET: ImageGallery/Create
@@ -52,7 +60,7 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,ImageToUpload,ImagePath")] ImageGalleryModel imageGalleryModel)
+        public ActionResult Create([Bind(Include = "Name,ImageToUpload")] UploadImageModel image)
         {
             try
             {
@@ -61,13 +69,20 @@ namespace WebApplication1.Controllers
                     using (ImageDbConnectionContext db = new ImageDbConnectionContext())
                     {
                         var set = db.ImageGallery;
-                        if (ModelState.IsValid)
+                        image.ID = Guid.NewGuid();
+                        using (Stream inputStream = image.ImageToUpload.InputStream)
                         {
-                            imageGalleryModel.ID = Guid.NewGuid();
-                            set.Add(imageGalleryModel);
-                            db.SaveChanges();
-                            return RedirectToAction("Index");
+                            MemoryStream memoryStream = inputStream as MemoryStream;
+                            if (memoryStream == null)
+                            {
+                                memoryStream = new MemoryStream();
+                                inputStream.CopyTo(memoryStream);
+                            }
+                            image.Data = memoryStream.ToArray();
                         }
+                        set.Add(image);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
                     }
                 }
             }
@@ -75,24 +90,29 @@ namespace WebApplication1.Controllers
             {
                 Console.Write(ex.Message);
             }
-            return View(imageGalleryModel);
+            return View(image);
         }
 
         // GET: ImageGallery/Edit
         public ActionResult Edit(Guid? id)
         {
-            var db = new ImageDbConnectionContext();
-
-            if (id == null)
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                using (ImageDbConnectionContext db = new ImageDbConnectionContext())
+                {
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    IImageModel imageGalleryModel = db.ImageGallery.Find(id);
+                    if (imageGalleryModel == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(imageGalleryModel);
+                }
             }
-            ImageGalleryModel imageGalleryModel = db.ImageGallery.Find(id);
-            if (imageGalleryModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(imageGalleryModel);
+            return View();
         }
 
         // POST: ImageGallery/Edit
@@ -100,34 +120,44 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,ImagePath")] ImageGalleryModel imageGalleryModel)
+        public ActionResult Edit([Bind(Include = "ID,Name,Data")] IImageModel imageGalleryModel)
         {
-            var db = new ImageDbConnectionContext();
-
             if (ModelState.IsValid)
             {
-                db.Entry(imageGalleryModel).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                using (ImageDbConnectionContext db = new ImageDbConnectionContext())
+                {
+                    if (ModelState.IsValid)
+                    {
+                        db.Entry(imageGalleryModel).State = EntityState.Modified;
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+                    return View(imageGalleryModel);
+                }
             }
-            return View(imageGalleryModel);
+            return View();
         }
 
         // GET: ImageGallery/Delete
         public ActionResult Delete(Guid? id)
         {
-            var db = new ImageDbConnectionContext();
-
-            if (id == null)
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                using (ImageDbConnectionContext db = new ImageDbConnectionContext())
+                {
+                    if (id == null)
+                    {
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                    IImageModel imageGalleryModel = db.ImageGallery.Find(id);
+                    if (imageGalleryModel == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    return View(imageGalleryModel);
+                }
             }
-            ImageGalleryModel imageGalleryModel = db.ImageGallery.Find(id);
-            if (imageGalleryModel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(imageGalleryModel);
+            return View();
         }
 
         // POST: ImageGallery/Delete
@@ -135,12 +165,17 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            var db = new ImageDbConnectionContext();
-
-            ImageGalleryModel imageGalleryModel = db.ImageGallery.Find(id);
-            db.ImageGallery.Remove(imageGalleryModel);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                using (ImageDbConnectionContext db = new ImageDbConnectionContext())
+                {
+                    UploadImageModel imageGalleryModel = db.ImageGallery.Find(id);
+                    db.ImageGallery.Remove(imageGalleryModel);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+            }
+            return View();
         }
 
         protected override void Dispose(bool disposing)

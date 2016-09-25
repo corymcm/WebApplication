@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.IO;
+using System.Web.Mvc;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -27,6 +29,17 @@ namespace WebApplication1.Controllers
         {
             ViewBag.Message = "Houses for Rent";
 
+            if (ModelState.IsValid)
+            {
+                var imagesModel = new ImageGalleryModel();
+                var imageFiles = Directory.GetFiles(Server.MapPath("~/Casa/"));
+                foreach (var item in imageFiles)
+                {
+                    imagesModel.ImageList.Add(new LocalImageModel(Path.GetFileName(item)));
+                }
+
+                return View(imagesModel);
+            }
             return View();
         }
     }

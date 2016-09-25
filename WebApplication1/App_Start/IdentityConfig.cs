@@ -8,7 +8,6 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using System.Net.Mail;
-using System.Configuration;
 
 namespace WebApplication1
 {
