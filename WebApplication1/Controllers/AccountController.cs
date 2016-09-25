@@ -12,6 +12,7 @@ using SaasEcom.Core.DataServices.Storage;
 using SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe;
 using System.Configuration;
 using SaasEcom.Core.Models;
+using SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces;
 
 namespace WebApplication1.Controllers
 {
@@ -180,6 +181,9 @@ namespace WebApplication1.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if (string.IsNullOrWhiteSpace(model.SubscriptionPlan))
+                        model.SubscriptionPlan = "basic_monthly";
+
                     await SubscriptionsFacade.SubscribeUserAsync(user, model.SubscriptionPlan, 0, model.CreditCard);
                     await UserManager.UpdateAsync(user);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
