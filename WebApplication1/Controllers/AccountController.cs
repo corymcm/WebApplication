@@ -74,6 +74,16 @@ namespace WebApplication1.Controllers
             }
         }
 
+        private ICardProvider _cardService;
+        private ICardProvider CardService
+        {
+            get
+            {
+                return _cardService ?? (_cardService = new CardProvider(ConfigurationManager.AppSettings["StripeApiSecretKey"],
+                    new CardDataService<ApplicationDbContext, ApplicationUser>(HttpContext.GetOwinContext().Get<ApplicationDbContext>())));
+            }
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -185,6 +195,8 @@ namespace WebApplication1.Controllers
                         model.SubscriptionPlan = "basic_monthly";
 
                     await SubscriptionsFacade.SubscribeUserAsync(user, model.SubscriptionPlan, 0, model.CreditCard);
+                    await CardService.AddAsync(user, model.CreditCard);
+
                     await UserManager.UpdateAsync(user);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
