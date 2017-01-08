@@ -8,7 +8,9 @@ namespace WebApplication1.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var homeModel = new HomeModel();
+            homeModel.HomePicture = new LocalImageModel(Path.GetFileName("Images/20160827_204629.jpg"));
+            return View(homeModel);
         }
 
         public ActionResult About()
@@ -21,6 +23,20 @@ namespace WebApplication1.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Packages()
+        {
+            ViewBag.Message = "Packages";
+
+            return View();
+        }
+
+        public ActionResult Reservations()
+        {
+            ViewBag.Message = "Reservations";
 
             return View();
         }

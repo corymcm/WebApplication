@@ -81,8 +81,8 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SaasEcom.Core, Version=1.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SaasEcom.Core.1.1.7\lib\net45\SaasEcom.Core.dll</HintPath>
+    <Reference Include="SaasEcom.Core, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SaasEcom.Core.1.1.6\lib\net45\SaasEcom.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Stripe.net, Version=6.6.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -224,6 +224,7 @@
     <Compile Include="Models\ImageGalleryModel.cs" />
     <Compile Include="Models\LocalImageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\UploadImageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -257,6 +258,7 @@
     <Content Include="Images\20160224_115102.jpg" />
     <Content Include="Images\20160224_115713.jpg" />
     <Content Include="Images\20160224_115718.jpg" />
+    <Content Include="Images\20160827_204629.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -331,6 +333,8 @@
     <Content Include="Views\Billing\CancelSubscription.cshtml" />
     <Content Include="Views\Billing\BillingAddress.cshtml" />
     <Content Include="Views\Billing\AddCreditCard.cshtml" />
+    <Content Include="Views\Home\Reservations.cshtml" />
+    <Content Include="Views\Home\Packages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -366,7 +370,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64896</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://192.168.0.108:64896/</IISUrl>
+          <IISUrl>http://localhost:64896/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
