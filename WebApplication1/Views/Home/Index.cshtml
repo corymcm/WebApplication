@@ -8,7 +8,7 @@
     <h1>Canada Cuba Companions</h1>
     <p class="lead">Canadian Cubian Companions is a site without packages, we only use a monthly subscription.
     This allows our clients to have unlimited access to vacations and our services.</p>
-    <p><a class="buy" href="@Url.Action("Register", "Account", new { plan = "basic_monthly" })">Sign up &raquo;</a></p>
+    <p><a class="buy" href="@Url.Action("Register", "Account", (CultureInfo)null), new { plan = "basic_monthly" })">Sign up &raquo;</a></p>
     <img height="600" width="800" src="@Url.Content("~/Images/" + Model.HomePicture.Name)" style="display:block">
 
 </div>
@@ -22,9 +22,9 @@
         </p>
         <div background-color:orangered>
             <p>
-                <a class="btn btn-default" href="@Url.Action("About", "Home")">About Us &raquo;</a>
-                <a class="btn btn-default" href="@Url.Action("Packages", "Home")">Packages &raquo;</a>
-                <a class="btn btn-default" href="@Url.Action("Reservations", "Home")">Reserve Vacation &raquo;</a>
+                <a class="btn btn-default" href="@Url.Action("About", "Home", (CultureInfo)null)">About Us &raquo;</a>
+                <a class="btn btn-default" href="@Url.Action("Packages", "Home", (CultureInfo)null)">Packages &raquo;</a>
+                <a class="btn btn-default" href="@Url.Action("Reservations", "Home", (CultureInfo)null)">Reserve Vacation &raquo;</a>
             </p>
         </div>
     </center>

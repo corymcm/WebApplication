@@ -16,7 +16,6 @@ using SaasEcom.Core.Infrastructure.PaymentProcessor.Interfaces;
 using SaasEcom.Core.Infrastructure.PaymentProcessor.Stripe;
 using SaasEcom.Core.Models;
 using WebApplication1.Models;
-using WebApplication1.Views.SaasEcom.ViewModels;
 
 namespace WebApplication1.Controllers
 {
