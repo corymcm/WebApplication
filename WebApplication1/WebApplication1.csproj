@@ -204,15 +204,18 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Attributes\LocalizationAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BillingController.cs" />
+    <Compile Include="Controllers\LocalizedControllerActivator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StripeWebhooksController.cs" />
+    <Compile Include="Extensions\UrlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Migrations\201609250035138_WebApplication1.Models.ApplicationDbContext.cs" />
     <Compile Include="Migrations\201609250035138_WebApplication1.Models.ApplicationDbContext.Designer.cs">
       <DependentUpon>201609250035138_WebApplication1.Models.ApplicationDbContext.cs</DependentUpon>
@@ -221,22 +224,44 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IImageModel.cs" />
-    <Compile Include="Models\ImageGalleryModel.cs" />
     <Compile Include="Models\LocalImageModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\HomeModel.cs" />
-    <Compile Include="Models\UploadImageModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Billing.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Billing.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ContactUs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContactUs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Home.fr.Designer.cs">
+      <DependentUpon>Home.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Home.es.Designer.cs">
+      <DependentUpon>Home.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Home.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Home.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Reservations.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reservations.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Views\Billing\ViewModels\FlashViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Casa\DSC_0137.JPG" />
-    <Content Include="Casa\DSC_0142.JPG" />
-    <Content Include="Casa\DSC_0151.JPG" />
-    <Content Include="Casa\DSC_0152.JPG" />
-    <Content Include="Casa\DSC_0174.JPG" />
-    <Content Include="Casa\DSC_0177.JPG" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\card-icons\American Express.png" />
@@ -250,14 +275,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\20160224_115009.jpg" />
-    <Content Include="Images\20160224_115019.jpg" />
-    <Content Include="Images\20160224_115027.jpg" />
-    <Content Include="Images\20160224_115034.jpg" />
-    <Content Include="Images\20160224_115043.jpg" />
-    <Content Include="Images\20160224_115102.jpg" />
-    <Content Include="Images\20160224_115713.jpg" />
-    <Content Include="Images\20160224_115718.jpg" />
     <Content Include="Images\20160827_204629.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -314,7 +331,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Casas.cshtml" />
     <Content Include="Views\ImageGallery\Create.cshtml" />
     <Content Include="Views\ImageGallery\Delete.cshtml" />
     <Content Include="Views\ImageGallery\Details.cshtml" />
@@ -350,6 +366,37 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201609250035138_WebApplication1.Models.ApplicationDbContext.resx">
       <DependentUpon>201609250035138_WebApplication1.Models.ApplicationDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Billing.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Billing.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ContactUs.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ContactUs.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Home.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Home.fr.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Home.es.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Home.es.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Home.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Home.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Reservations.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Reservations.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,6 +8,7 @@ namespace WebApplication1.Controllers
 {
     public class LocalizedControllerActivator : IControllerActivator
     {
+        private string _DefaultLanguage = "en";
 
         public IController Create(RequestContext requestContext, Type controllerType)
         {

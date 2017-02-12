@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = Resources.Home.Description;
 
             return View();
         }
@@ -38,24 +38,6 @@ namespace WebApplication1.Controllers
         {
             ViewBag.Message = "Reservations";
 
-            return View();
-        }
-
-        public ActionResult Casas()
-        {
-            ViewBag.Message = "Houses for Rent";
-
-            if (ModelState.IsValid)
-            {
-                var imagesModel = new ImageGalleryModel();
-                var imageFiles = Directory.GetFiles(Server.MapPath("~/Casa/"));
-                foreach (var item in imageFiles)
-                {
-                    imagesModel.ImageList.Add(new LocalImageModel(Path.GetFileName(item)));
-                }
-
-                return View(imagesModel);
-            }
             return View();
         }
     }

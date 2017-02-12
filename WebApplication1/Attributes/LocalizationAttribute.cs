@@ -7,6 +7,7 @@ namespace WebApplication1.Attributes
 {
     public class LocalizationAttribute : ActionFilterAttribute
     {
+        private string _DefaultLanguage = "en";
 
         public LocalizationAttribute(string defaultLanguage)
         {
