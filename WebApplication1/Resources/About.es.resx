@@ -117,28 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>Sobre nosotros</value>
+  <data name="ParagraphFive" xml:space="preserve">
+    <value>Cada cliente o grupo tiene un anfitrión de habla inglesa / española que se reunirá con usted cuando llegue y le acompañará en cada paso del camino. Usted nunca está solo, el anfitrión estará allí para ayudar con la selección de un compañero.</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Canadian Cuban Companions es un sitio sin paquetes, solo usamos una suscripción mensual. Esto permite a nuestros clientes tener acceso ilimitado a las vacaciones ya nuestros servicios.</value>
+  <data name="ParagraphFour" xml:space="preserve">
+    <value>Los alojamientos están en están en Casa's, no es un hotel. Por lo tanto, no se sentirá como si estuviera siendo juzgado por personas que ni siquiera saben. Trabajamos con muchas casas diferentes. Usted puede encontrar propiedades de gama alta o una casa más estándar. Cualquiera que sea su gusto, estamos seguros de que podemos acomodar.</value>
   </data>
-  <data name="HomeHeader" xml:space="preserve">
-    <value>Bienvenido al mejor sitio de Companion alrededor!</value>
+  <data name="ParagraphOne" xml:space="preserve">
+    <value>Nuestra empresa fue fundada en 2013. Sin embargo, optamos por correr con cero exposición al principio, las personas seleccionadas junto con los fundadores fueron nuestros cobayas. Esto nos dio la oportunidad de aprender y hacer crecer el negocio antes de entrar en acción.</value>
   </data>
-  <data name="HomeMotto" xml:space="preserve">
-    <value>Aquí en Canadian Cuban Companion nos enorgullecemos de dar a nuestros clientes la mejor experiencia alrededor.</value>
+  <data name="ParagraphThree" xml:space="preserve">
+    <value>Hemos ido de vacaciones a todas las partes del Caribe. Después de viajar a lugares como México, República Dominicana y Jamaica.</value>
   </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Paquetes</value>
-  </data>
-  <data name="Reserve" xml:space="preserve">
-    <value>Reserva de vacaciones</value>
-  </data>
-  <data name="SignUp" xml:space="preserve">
-    <value>Regístrate</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Página Principal</value>
+  <data name="ParagraphTwo" xml:space="preserve">
+    <value>Somos un grupo de amigos de más de 15 años. Estamos compuestos de hombres casados ​​/ divorciados / solteros de 30 a 45 años. No somos personas ricas, así que sabemos cómo estirar un dólar cuando tiene que hacerse. Queríamos tener unas vacaciones para nosotros.</value>
   </data>
 </root>

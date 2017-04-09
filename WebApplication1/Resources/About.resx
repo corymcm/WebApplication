@@ -117,28 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>Sobre nosotros</value>
+  <data name="ParagraphFive" xml:space="preserve">
+    <value>Each client or group has an English/spanish speaking Host that will meet you when you arrive and accompany you every step of the way. You are never alone, the host will be there to assist with the selection of a companion.</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Canadian Cuban Companions es un sitio sin paquetes, solo usamos una suscripción mensual. Esto permite a nuestros clientes tener acceso ilimitado a las vacaciones ya nuestros servicios.</value>
+  <data name="ParagraphFour" xml:space="preserve">
+    <value>Accomodations are in  are in Casa's, not a hotel. Therefore you will not feel as though you are being judged by people you don't even know. We work with many different casa’s. You can find high end properties or a more standard house. Whatever your taste is, we are certain to that we can accommodate.</value>
   </data>
-  <data name="HomeHeader" xml:space="preserve">
-    <value>Bienvenido al mejor sitio de Companion alrededor!</value>
+  <data name="ParagraphOne" xml:space="preserve">
+    <value>Our company was founded in 2013. However we chose to run with zero exposure at first, selected individuals along with the founders  were our guinea pigs. This gave us a chance to learn and grow the business before going live.</value>
   </data>
-  <data name="HomeMotto" xml:space="preserve">
-    <value>Aquí en Canadian Cuban Companion nos enorgullecemos de dar a nuestros clientes la mejor experiencia alrededor.</value>
+  <data name="ParagraphThree" xml:space="preserve">
+    <value>We have vacationed to all parts of the Caribbean.After traveling to places such as Mexico, Dominican Republic &amp; Jamaica.</value>
   </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Paquetes</value>
-  </data>
-  <data name="Reserve" xml:space="preserve">
-    <value>Reserva de vacaciones</value>
-  </data>
-  <data name="SignUp" xml:space="preserve">
-    <value>Regístrate</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Página Principal</value>
+  <data name="ParagraphTwo" xml:space="preserve">
+    <value>We are a group of friends of over 15 years. We are composed up of married / divorced / single men aged 30 to 45.  We are not rich people so we know how to stretch a dollar when it needs to be done. We wanted to have a vacation for ourselves.</value>
   </data>
 </root>

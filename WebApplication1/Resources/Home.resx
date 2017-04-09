@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About Us</value>
+  </data>
   <data name="Description" xml:space="preserve">
-    <value>Your application description page.</value>
+    <value>Canadian Cubian Companions is a site without packages, we only use a monthly subscription. This allows our clients to have unlimited access to vacations and our services.</value>
+  </data>
+  <data name="HomeHeader" xml:space="preserve">
+    <value>Welcome to the best Compionion site around!</value>
+  </data>
+  <data name="HomeMotto" xml:space="preserve">
+    <value>Here at Canadian Cubian Comanion we pride ourselfs at giving our clients the best experience around.</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Packages</value>
+  </data>
+  <data name="Reserve" xml:space="preserve">
+    <value>Reserve Vacation</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Sign Up</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Home Page</value>
   </data>
 </root>

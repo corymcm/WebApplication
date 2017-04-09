@@ -117,28 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
-    <value>Sobre nosotros</value>
+  <data name="ParagraphFive" xml:space="preserve">
+    <value>Chaque client ou groupe possède un hôte parlant anglais / espagnol qui vous rencontrera lorsque vous arrivez et vous accompagne à chaque étape. Vous n'êtes jamais seul, l'hôte sera là pour vous aider à choisir un compagnon.</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Canadian Cuban Companions es un sitio sin paquetes, solo usamos una suscripción mensual. Esto permite a nuestros clientes tener acceso ilimitado a las vacaciones ya nuestros servicios.</value>
+  <data name="ParagraphFour" xml:space="preserve">
+    <value>Les logements sont situés dans Casa's, pas un hôtel. Par conséquent, vous ne vous sentirez pas comme si vous étiez jugé par des gens que vous ne connaissez même pas. Nous travaillons avec beaucoup de maisons différentes. Vous pouvez trouver des propriétés haut de gamme ou une maison plus standard. Quel que soit votre goût, nous sommes certains que nous pouvons accueillir.</value>
   </data>
-  <data name="HomeHeader" xml:space="preserve">
-    <value>Bienvenido al mejor sitio de Companion alrededor!</value>
+  <data name="ParagraphOne" xml:space="preserve">
+    <value>Notre société a été fondée en 2013. Cependant, nous avons choisi de courir avec une exposition nulle au début, des individus sélectionnés avec les fondateurs étaient nos cochons d'Inde. Cela nous a donné une chance d'apprendre et de développer l'entreprise avant d'aller vivre.</value>
   </data>
-  <data name="HomeMotto" xml:space="preserve">
-    <value>Aquí en Canadian Cuban Companion nos enorgullecemos de dar a nuestros clientes la mejor experiencia alrededor.</value>
+  <data name="ParagraphThree" xml:space="preserve">
+    <value>Nous avons séjourné dans des vacances dans toutes les régions des Caraïbes. Après avoir voyagé à des endroits comme le Mexique, la République dominicaine et la Jamaïque.</value>
   </data>
-  <data name="Packages" xml:space="preserve">
-    <value>Paquetes</value>
-  </data>
-  <data name="Reserve" xml:space="preserve">
-    <value>Reserva de vacaciones</value>
-  </data>
-  <data name="SignUp" xml:space="preserve">
-    <value>Regístrate</value>
-  </data>
-  <data name="Title" xml:space="preserve">
-    <value>Página Principal</value>
+  <data name="ParagraphTwo" xml:space="preserve">
+    <value>Nous sommes un groupe d'amis de plus de 15 ans. Nous sommes composés d'hommes mariés / divorcés / célibataires âgés de 30 à 45 ans. Nous ne sommes pas des personnes riches, alors nous savons comment étirer un dollar lorsque cela doit être fait. Nous voulions passer des vacances pour nous-mêmes.</value>
   </data>
 </root>

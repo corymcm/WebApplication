@@ -117,7 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>À propos de nous</value>
+  </data>
   <data name="Description" xml:space="preserve">
-    <value>La page de description de votre demande.</value>
+    <value>Canadian Cuban Companions est un site sans paquets, nous utilisons uniquement un abonnement mensuel. Cela permet à nos clients d'avoir un accès illimité aux vacances et à nos services.</value>
+  </data>
+  <data name="HomeHeader" xml:space="preserve">
+    <value>Bienvenue dans le meilleur site compagnon!</value>
+  </data>
+  <data name="HomeMotto" xml:space="preserve">
+    <value>Chez Canadian Cuban Companion, nous sommes fiers de donner à nos clients la meilleure expérience possible.</value>
+  </data>
+  <data name="Packages" xml:space="preserve">
+    <value>Paquets</value>
+  </data>
+  <data name="Reserve" xml:space="preserve">
+    <value>Réserver des vacances</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Page d'accueil</value>
   </data>
 </root>

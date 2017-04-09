@@ -22,14 +22,14 @@ namespace Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Home {
+    public class About {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Home() {
+        internal About() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WebApplication1.Resources.Home", typeof(Home).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WebApplication1.Resources.About", typeof(About).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,74 +61,47 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to About Us.
+        ///   Looks up a localized string similar to Each client or group has an English/spanish speaking Host that will meet you when you arrive and accompany you every step of the way. You are never alone, the host will be there to assist with the selection of a companion..
         /// </summary>
-        public static string About {
+        public static string ParagraphFive {
             get {
-                return ResourceManager.GetString("About", resourceCulture);
+                return ResourceManager.GetString("ParagraphFive", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Canadian Cubian Companions is a site without packages, we only use a monthly subscription. This allows our clients to have unlimited access to vacations and our services..
+        ///   Looks up a localized string similar to Accomodations are in  are in Casa&apos;s, not a hotel. Therefore you will not feel as though you are being judged by people you don&apos;t even know. We work with many different casa’s. You can find high end properties or a more standard house. Whatever your taste is, we are certain to that we can accommodate..
         /// </summary>
-        public static string Description {
+        public static string ParagraphFour {
             get {
-                return ResourceManager.GetString("Description", resourceCulture);
+                return ResourceManager.GetString("ParagraphFour", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the best Compionion site around!.
+        ///   Looks up a localized string similar to Our company was founded in 2013. However we chose to run with zero exposure at first, selected individuals along with the founders  were our guinea pigs. This gave us a chance to learn and grow the business before going live..
         /// </summary>
-        public static string HomeHeader {
+        public static string ParagraphOne {
             get {
-                return ResourceManager.GetString("HomeHeader", resourceCulture);
+                return ResourceManager.GetString("ParagraphOne", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Here at Canadian Cubian Comanion we pride ourselfs at giving our clients the best experience around..
+        ///   Looks up a localized string similar to We have vacationed to all parts of the Caribbean.After traveling to places such as Mexico, Dominican Republic &amp; Jamaica..
         /// </summary>
-        public static string HomeMotto {
+        public static string ParagraphThree {
             get {
-                return ResourceManager.GetString("HomeMotto", resourceCulture);
+                return ResourceManager.GetString("ParagraphThree", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Packages.
+        ///   Looks up a localized string similar to We are a group of friends of over 15 years. We are composed up of married / divorced / single men aged 30 to 45.  We are not rich people so we know how to stretch a dollar when it needs to be done. We wanted to have a vacation for ourselves..
         /// </summary>
-        public static string Packages {
+        public static string ParagraphTwo {
             get {
-                return ResourceManager.GetString("Packages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Reserve Vacation.
-        /// </summary>
-        public static string Reserve {
-            get {
-                return ResourceManager.GetString("Reserve", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sign Up.
-        /// </summary>
-        public static string SignUp {
-            get {
-                return ResourceManager.GetString("SignUp", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Home Page.
-        /// </summary>
-        public static string Title {
-            get {
-                return ResourceManager.GetString("Title", resourceCulture);
+                return ResourceManager.GetString("ParagraphTwo", resourceCulture);
             }
         }
     }
